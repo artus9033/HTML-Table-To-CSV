@@ -13,7 +13,7 @@ function JHTCSVWorker(){
 	console.log("Repository on GitHub: https://github.com/artus9033/JQuery-HTML-Table-CSV-Export-Import");
 }
 
-JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector, excludedColumns, lastCol){
+JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector, excludedColumns, lastCol, minusSubstitute){
 		var arr = new Array();
 		var mCt = 0;
 		var klucz = 0;
@@ -34,6 +34,7 @@ JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector,
 		arr.splice(splicePos, spliceLength);
 		for(var i=0; i < arr.length; i++) {
 			arr[i] = arr[i].replace('undefined', ''); //removes 'undefined'
+			arr[i] = arr[i].replace('undefined', minusSubstitute); //replaces '-' with minusSubstitute
 		}
 		var csv;
 		$.each(arr, function(index, value) {
