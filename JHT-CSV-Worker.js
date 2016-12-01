@@ -34,7 +34,7 @@ JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector,
 		arr.splice(splicePos, spliceLength);
 		for(var i=0; i < arr.length; i++) {
 			arr[i] = arr[i].replace('undefined', ''); //removes 'undefined'
-			arr[i] = arr[i].replace('undefined', minusSubstitute); //replaces '-' with minusSubstitute
+			arr[i] = arr[i].replace('-', minusSubstitute); //replaces '-' with minusSubstitute
 		}
 		var csv;
 		$.each(arr, function(index, value) {
