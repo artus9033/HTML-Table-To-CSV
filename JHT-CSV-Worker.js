@@ -8,6 +8,10 @@ function checkColumn(index, arr){
 	return chk;
 }
 
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
 function JHTCSVWorker(){
 	console.log("JHT-CSV-Worker (aka JQuery-HTML-Table-CSV-Export-Import) by artus9033 succesfully loaded");
 	console.log("Repository on GitHub: https://github.com/artus9033/JQuery-HTML-Table-CSV-Export-Import");
@@ -32,10 +36,8 @@ JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector,
 			});
 		});
 		arr.splice(splicePos, spliceLength);
-		for(var i=0; i < arr.length; i++) {
-			arr[i] = arr[i].replace('undefined', ''); //removes 'undefined'
-			arr[i] = arr[i].replace('-', minusSubstitute); //replaces '-' with minusSubstitute
-		}
+		arr[i] = replaceAll(arr[i], 'undefined', ''); //removes 'undefined'
+		arr[i] = replaceAll(arr[i], '-', minusSubstitute); //replaces '-' with minusSubstitute
 		var csv;
 		$.each(arr, function(index, value) {
 			csv += value + "\r\n";
@@ -43,7 +45,6 @@ JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector,
 		console.log("Succesfully exported table " + selector + "! The raw csv is:")
 		console.log(arr);
 		csv = csv.substring(9);
-		csv.replace("undefined", "");
 		var encoder = new DataEnc({
 		    mime   : 'text/csv',
 		    charset: 'UTF-16BE',
