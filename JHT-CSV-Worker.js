@@ -36,8 +36,10 @@ JHTCSVWorker.prototype.exportToCSV = function(splicePos, spliceLength, selector,
 			});
 		});
 		arr.splice(splicePos, spliceLength);
-		arr[i] = replaceAll(arr[i], 'undefined', ''); //removes 'undefined'
-		arr[i] = replaceAll(arr[i], '-', minusSubstitute); //replaces '-' with minusSubstitute
+		for(var i=0; i < arr.length; i++) {
+			arr[i] = replaceAll(arr[i], 'undefined', ''); //removes 'undefined'
+			arr[i] = replaceAll(arr[i], '-', minusSubstitute); //replaces '-' with minusSubstitute
+		}
 		var csv;
 		$.each(arr, function(index, value) {
 			csv += value + "\r\n";
