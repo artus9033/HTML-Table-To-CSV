@@ -12,7 +12,8 @@ The project is really simple to use. Just clone the repo and include the JHT-CSV
 # Documentation:
 
 To use it simply init:
-	`JHTCSVWorker worker = new JHTCSVWorker();`
+
+`JHTCSVWorker worker = new JHTCSVWorker();`
 
 # Functions:
 
@@ -21,9 +22,10 @@ Returns the string with data exported from a table specified by the tableSelecto
 
 # Sample code:
 The following code downloads 'file.csv' with the contents of a table with id="table" excluding the last line:
-	`JHTCSVWorker worker = new JHTCSVWorker();
-	var result = worker.exportToCSV(-1, 1, "#table");
-	var link = document.createElement('a');
-	link.download = "file.csv";
-	link.href =  result;
-	link.click();`
+
+`JHTCSVWorker worker = new JHTCSVWorker();
+var result = worker.exportToCSV(-1, 1, "#table");
+var link = document.createElement('a');
+link.download = "file.csv";
+link.href =  result;
+link.click();`
