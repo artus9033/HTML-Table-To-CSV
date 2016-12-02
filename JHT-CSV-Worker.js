@@ -7,7 +7,7 @@ function checkColumn(index, arr){
 	});
 	return chk;
 }
-
+//l
 function escapeRegExp(str) {
 	return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }
