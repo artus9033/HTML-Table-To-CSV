@@ -1,4 +1,4 @@
-# HTML Tablo To CSV
+# HTML Table To CSV
 
 # What's this?
 This project is a lightweight Javascript library for exporting and importing data from HTML tables to CSV files.
